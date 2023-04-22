@@ -1,0 +1,3 @@
+Para este proyecto solo se necesita XAMPP version 8.2.0
+instalar proyecto dentro de la carpeta xampp, y dentro de htdocs.
+PHP Version 8.2.0
