@@ -39,7 +39,7 @@ require "candidatos.php"
                 <?php
                 foreach ($regiones as $region) {
                     echo '<option value="' . $region['id'] . '">' . $region['region'] . '</option>';
-                } //end foreach
+                } 
                 ?>
             </select>
 

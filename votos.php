@@ -12,48 +12,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errores = [];
 
-    // Validación de nombre
     if (empty($nombre)) {
         $errores[] = "El campo Nombre es obligatorio.";
     } else if (!preg_match('/^[a-zA-Z\s]+$/', $nombre)) {
         $errores[] = "El campo Nombre solo puede contener letras y espacios.";
     }
 
-    // Validación de alias
     if (empty($alias)) {
         $errores[] = "El campo Alias es obligatorio.";
     } else if (!preg_match('/^[a-zA-Z0-9]+$/', $alias)) {
         $errores[] = "El campo Alias solo puede contener letras y números.";
     }
 
-    // Validación de RUT
     if (empty($rut)) {
         $errores[] = "El campo RUT es obligatorio.";
     } else if (!preg_match('/^\d{1,2}\.\d{3}\.\d{3}-[0-9kK]$/', $rut)) {
         $errores[] = "El RUT ingresado no es válido.";
     }
-    // Validación de email
+  
     if (empty($email)) {
         $errores[] = "El campo Email es obligatorio.";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errores[] = "El email ingresado no es válido.";
     }
-    // Validación de región y comuna
+  
     if (empty($region)) {
         $errores[] = "Debe seleccionar una Región.";
     }
     if (empty($comuna)) {
         $errores[] = "Debe seleccionar una Comuna.";
     }
-    // Validación de candidato
+ 
     if (empty($candidato)) {
         $errores[] = "Debe seleccionar un Candidato.";
     }
-    // Validación de checkboxes
+ 
     if (count($_POST['entero']) < 2) {
         $errores[] = "Debe seleccionar al menos 2 opciones en 'Como se enteró de nosotros'.";
     }
-    // Si hay errores, se muestran
+   
     if (count($errores) > 0) {
         foreach ($errores as $error) {
             echo "<div class='alert alert-danger'>$error</div>";
